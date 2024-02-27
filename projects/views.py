@@ -1,5 +1,6 @@
 from .models import Project, Task
 from rest_framework import permissions, viewsets
+from django.db.models import Q
 
 from .serializers import *
 
@@ -7,7 +8,7 @@ class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
 
     def get_queryset(self):
-        user = self.request.user
+        user = self.request.user.id
         return Project.objects.filter(Q(owner=user) | Q(collaborators=user)).distinct()
     
 
