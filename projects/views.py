@@ -4,8 +4,12 @@ from rest_framework import permissions, viewsets
 from .serializers import *
 
 class ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all()
     serializer_class = ProjectSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Project.objects.filter(Q(owner=user) | Q(collaborators=user)).distinct()
+    
 
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
