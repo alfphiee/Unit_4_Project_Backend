@@ -69,7 +69,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'backend.urls'
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost/'
+    'http://localhost/',
+    'https://unit4projectfrontend-production-75b5.up.railway.app/',
 ]
 
 
