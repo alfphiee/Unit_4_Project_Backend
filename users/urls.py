@@ -4,5 +4,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register('', views.UserViewSet, basename='user')
-
-urlpatterns = router.urls
+urlpatterns = [
+  path('', include(router.urls)),
+  path('<int:user_id>/add_photo/', views.AddPhotoView.as_view(), name='add_photo')
+]
