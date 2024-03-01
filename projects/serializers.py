@@ -14,7 +14,8 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         collaborators_emails = validated_data.pop('collaborators_emails', [])
-        project = Project.objects.create(**validated_data)
+        user = self.context['request'].user
+        project = Project.objects.create(**validated_data, owner=user)
         self._update_collaborators(project, collaborators_emails)
         return project
 
