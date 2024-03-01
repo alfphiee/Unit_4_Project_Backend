@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt import views as jwt_views
 from users import views
+from projects import views as project_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
