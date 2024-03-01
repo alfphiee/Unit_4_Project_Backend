@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
     'localhost',
     'unit4projectbackend-production-b262.up.railway.app',
     'unit_4_project_backend.railway.internal',
+    'breakdown-alfie.netlify.app',
 ]
 
 
@@ -71,6 +72,7 @@ ROOT_URLCONF = 'backend.urls'
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost/',
     'https://unit4projectfrontend-production-75b5.up.railway.app/',
+    'https://breakdown-alfie.netlify.app/',
 ]
 
 

@@ -3,6 +3,7 @@ from rest_framework_nested import routers
 from . import views
 
 router = routers.DefaultRouter()
+router.register(r'user-tasks', views.UserTasksViewSet, basename='user-tasks')
 router.register('', views.ProjectViewSet, basename='project')
 
 project_router = routers.NestedDefaultRouter(router, '', lookup='project')
